@@ -3,7 +3,6 @@ from PIL import Image, ImageDraw, ImageFont
 import math
 im = Image.open("Triangulos.jpg")
 
-im.show(im)
 
 def Tabela():
     print(""" 
@@ -35,6 +34,19 @@ def Tabela():
         __________|__________|__________|__________|__________
                   |          |          |          |
                   |          |          |          |""")
+
+def ErrorPrint():
+    print("error: Try Again")
+    print("error: Try Again")
+    print("""error: Try Again""")
+    print("""erro: Tente Novamente""")
+    print("""erro: Tente Novamente""")
+    print("""erro: Tente Novamente""")
+    print("""
+    =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+    Entre com suporte twitter.com/Carniceiroso
+    Try support on twitter.com/Carniceiroso
+    =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+""")
 
 print("2 grau                                    = 1")
 print("Perímetros                                = 2")
@@ -597,22 +609,8 @@ if G == 8:
             return euclides_(Me, Ma % Me)
 
 #Seno, Cosseno, Tangente
-if G == 9:
-    
-    
+#if G == 9:    
 
-else:
+else: 
+    ErrorPrint
 
-
-
-    print("error: Try Again")
-    print("error: Try Again")
-    print("""error: Try Again""")
-    print("""erro: Tente Novamente""")
-    print("""erro: Tente Novamente""")
-    print("""erro: Tente Novamente""")
-    print("""
-    =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
-    Entre com suporte twitter.com/Carniceiroso
-    Try support on twitter.com/Carniceiroso
-    =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+""")

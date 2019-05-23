@@ -1,0 +1,618 @@
+import cmath
+from PIL import Image, ImageDraw, ImageFont
+import math
+im = Image.open("Triangulos.jpg")
+
+im.show(im)
+
+def Tabela():
+    print(""" 
+
+
+                  |          |          |          |
+                  |    30°   |    45°   |    60°   |          
+        __________|__________|__________|__________|__________
+                  |          |          |          |
+                  |          |          |          |
+                  |    1     |    √2    |    √3    |
+        Seno      |  ------  |  ------  |  ------  |
+                  |    2     |     2    |     3    |
+                  |          |          |          |
+        __________|__________|__________|__________|__________
+                  |          |          |          |
+                  |          |          |          |
+                  |    √3    |    √2    |    1     |
+        Cosseno   |  ------  |  ------  |  ------  |
+                  |     2    |     2    |    2     |
+                  |          |          |          |
+        __________|__________|__________|__________|__________
+                  |          |          |          |
+                  |          |          |          |
+                  |    √3    |    1     |    √3    |
+        Tangente  |  ------  |  ------  |  ------  |
+                  |     3    |    1     |     1    |
+                  |          |          |          |
+        __________|__________|__________|__________|__________
+                  |          |          |          |
+                  |          |          |          |""")
+
+print("2 grau                                    = 1")
+print("Perímetros                                = 2")
+print("Áreas                                     = 3")
+print("Volumes                                   = 4")
+print("hipotenusa                                = 5")
+print("Fraçao Geratriz                           = 6")
+print("MDC                                       = 7")
+print("MMC                                       = 8")
+print("Seno, Cosseno, Tangente                   = 9")
+G = int(input())
+
+#segundo grau
+if G == 1 :
+    print("Bhaskara completa:")
+
+    IconA = input("Coloque o Valor de A")
+    IconB = input("Coloque o Valor de B")
+    IconC = input("Coloque o Valor de C")
+
+    IconB2 = complex(IconB) ** 2
+    IconA2 = complex(IconA) * 2
+    A4 = -4 * complex(IconA)
+    AC4 = A4 * complex(IconC)
+    A2 = 2 * complex(IconA)
+    IconNB = -1 * complex(IconB)
+
+    Delta = IconB2 + AC4
+    RDelta = cmath.sqrt(Delta)
+    NDelta = -1 * complex(Delta)
+    BhaN = - complex(IconB) - RDelta
+    BhaN1 = BhaN/A2
+    BhaP = complex(RDelta) - complex(IconB)
+    BhaP1 = BhaP / A2
+    Yv = NDelta / A4
+    Xv = complex(IconB) / A4
+
+    print("X = ", BhaN1)
+    print("X = ", BhaP1)
+    print("Yv = ", Yv)
+    print("Xv = ", Xv)
+
+#perímetros
+if G == 2 :
+
+    print("Círculo   = 1")
+    print("Quadrado  = 2")
+    print("Triângulo = 3")
+    print("Retângulo = 4")
+    print("Pentagono = 5")
+    print("Losângo   = 6")
+    print("Hexagono  = 7")
+    print("Trapézio  = 8")
+
+    P = input()
+
+    if P == "1":
+        print("C = 2 * π * r")
+        print("calculando...")
+        print("insira o Raio (r) do seu círculo")
+        print("Nota: o Raio e o Diâmetro dividido em 2, logo sua metade.")
+        print("Nota: O diâmetro e: Pode ser definido também como a distância")
+        print("do centro a um ponto qualquer da circunferência.")
+        print("Não esqueça de colocar o raio")
+
+
+        R = complex(input())
+        n = complex(3.14)
+        n1 = 2
+        C = complex(n * R * 2)
+        print("O perímetro do seu círculo é: ", C)
+
+    if P == "2":
+
+        print("Lembre-se que no Quadrado todos os lados sao iguais,")
+        print("Se forem diferentes,e retângulo")
+        print("Digite somente o valor de um lado")
+
+        L = complex(input())
+
+        J = L * L
+        K = J + J
+        print("O perimetro do seu Quadrado e = ", K)
+
+    if P == "3":
+        print("Digite as 3 arestas do seu Triângulo")
+        A = complex(input('Digite A'))
+        B = complex(input('Digite B'))
+        C = complex(input("Digite C"))
+        L = A + B + C
+        print('Calculando... ')
+        print("A + B + C = ")
+        print("O perímetro do seu Triângulo é: ", L)
+
+    if P == '4':
+        print("Coloque Um lado.")
+        L= complex(input())
+        print("Coloque outro Lado.")
+        J= complex(input())
+        K= L + L + J + J
+        print("calculando..")
+        print("O perímetro do seu retangulo é: ", K)    
+    
+    if P == '5':
+        print("Seu pentagono e Irregular ou Regular?")
+        print("Regular = todos os lados sao iguais")
+        print("Irregular = todos os lados sao diferentes")
+        print("Irregular = 1")
+        print('Regular = 2')
+        K= complex(input())
+        if K == 1:
+            print("Coloque o A")
+            F= complex(input())
+            print("Coloque o B")
+            G= complex(input())
+            print("Coloque o C")
+            H= complex(input())           
+            print("Coloque o D")
+            I= complex(input())
+            print("Coloque o E")
+            J= complex(input())
+            Z = F + G + H + I + J
+            print("calculando...")
+            print("O perímetro do seu Pentagono Irregular =", Z)
+        if K == 2 :
+            print("Coloque o A")
+            F= complex(input())
+            K = 5 * F
+            print('calculando...')
+            print("O perímetro do seu Pentagono Regular  =", Z)
+
+    if P == '6':
+
+        print("Seu Losângo e Irregular ou Regular?")
+        print("Regular = todos os lados sao iguais")
+        print("Irregular = todos os lados sao diferentes")
+        print("Irregular = 1")
+        print('Regular = 2')
+        K= complex(input())
+        if K == 1:
+            print("Coloque o A")
+            F= complex(input())
+            print("Coloque o B")
+            G= complex(input())
+            print("Coloque o C")
+            H= complex(input())           
+            print("Coloque o D")
+            I= complex(input())
+            
+            Z = F + G + H + I 
+            print("calculando...")
+            print("O perímetro do seu Losângo Irregular =", Z)
+        if K == 2 :
+            print("Coloque o A")
+            F= complex(input())
+            K = 5 * F
+            print('calculando...')
+            print("O perímetro do seu Losângo Regular  =", Z)
+
+    if P == '7':
+    
+        print("Seu Hexagono e Irregular ou Regular?")
+        print("Regular = todos os lados sao iguais")
+        print("Irregular = todos os lados sao diferentes")
+        print("Irregular = 1")
+        print('Regular = 2')
+        K= complex(input())
+        if K == 1:
+            print("Coloque o A")
+            F= complex(input())
+            print("Coloque o B")
+            G= complex(input())
+            print("Coloque o C")
+            H= complex(input())           
+            print("Coloque o D")
+            I= complex(input())
+            print("Coloque o E")
+            J= complex(input())
+            print("Coloque o I")
+            Y= complex(input())
+            Z = F + G + H + I + J + Y
+            print("calculando...")
+            print("O perímetro do seu Hexagono Irregular =", Z)
+        if K == 2 :
+            print("Coloque o A")
+            F= complex(input())
+            K = 5 * F
+            print('calculando...')
+            print("O perímetro do seu Hexagono Regular  =", Z)
+
+    if P == '8':
+        print("""
+        P: perímetro
+        B: base maior
+        b: base menor
+        L1 & L2: lados da figura""")
+        print("")
+        print("")
+        print("")
+        print("Coloque A")
+        W = complex(input())
+        print("Coloque B")
+        X = complex(input())
+        print("Coloque C")
+        Y = complex(input())
+        print("Coloque D")
+        Z = complex(input())
+        V = W + X + Y + Z
+        print('calculando...')
+        print("O perímetro do seu Trapézio = ", V)
+    else:
+
+      print("error: Try Again")
+      print("error: Try Again")
+      print("""error: Try Again""")
+      print("""erro: Tente Novamente""")
+      print("""erro: Tente Novamente""")
+      print("""erro: Tente Novamente""")
+      print("""
+    
+        =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+        Entre com suporte twitter.com/Carniceiroso
+        Try support on twitter.com/Carniceiroso
+        =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+""")
+  
+#areas
+if G == 3:
+
+    
+    print("Círculo   = 1")
+    print("Quadrado  = 2")
+    print("Triângulo = 3")
+    print("Retângulo = 4")
+    print("Pentagono = 5")
+    print("Losângo   = 6")
+    print("Hexagono  = 7")
+    print("Trapézio  = 8")
+
+    P = complex(input())
+
+    if P == 1:
+        print('A = π .(r.r)')
+        print("insira o Raio (r) do seu círculo")
+        print("Nota: o Raio e o Diâmetro dividido em 2, logo sua metade.")
+        print("Nota: O diâmetro e: Pode ser definido também como a distância")
+        print("do centro a um ponto qualquer da circunferência.")
+        print("Não esqueça de colocar o raio")
+        R = complex(input())
+        S = R **2
+        T = S * 3.14
+        print("calculando...")
+        print("A Área do seu circulo = ", T )
+    if P == 2:
+        print("Insira o Valor do Quadrado")
+        Z = complex(input())
+        Y = Z * Z
+        print("calculando...")
+        print("L * L ")
+        print("a Area do seu Quadrado = " , Y)
+    if P == 3:
+        print("Insira o Valor da base do seu triangulo")
+        Z = complex(input())
+        print("Insira a altura do seu triangulo")
+        Y = complex(input())
+        print("B * h / 2")
+        W = Z * Y 
+        S = W / 2
+        print("calculando...")
+        print("A area do seu triangulo = ", S)
+    if P == 4:
+        print("Coloque a Base do seu retangulo")
+        Z = complex(input())
+        print("Coloque  a altura do seu retangulo")
+        Y = complex(input())
+        print("B * H")
+        print("calculando...")
+        S = Z * Y
+        print("A area do seu retangulo = ", S )
+    if P == 5:
+        print("")
+        print("")
+        print("")
+        print("")
+        print("""Para conseguirmos fazer o cálculo da área do triângulo,
+        o primeiro passo é traçar uma reta do centro do pentágono até 
+        o ponto médio do lado que corresponde à base do pentágono,
+        reta essa que é chamada de apótema. 
+        Nas questões de prova, geralmente a medida do apótema
+        já é mencionada na figura do pentágono, no enunciado do exercício.""")
+        print("")
+        print("")
+        print("Qual o Valor da sua apotema?")
+        Z = complex(input())
+        print("Qual o Valor de uma das arestas do seu pentagono?")
+        Y = complex(input())
+        S = Y + Y + Y + Y
+        T = S * Z 
+        U = T / 2
+        print("calculando...")
+        print("A area do seu pentagono = ", U)
+    if P == 6:
+        print("Qual a Altura do seu losango?")
+        Z = complex(input())
+        print("Qual a Largura do seu losango?")
+        Y = complex(input())
+        print("Calculando")
+        print("D * d / 2")
+        S = Z * Y
+        T = S / 2
+        print("A area do seu Losango = ", T)
+    if P == 7:
+        print("Insira o Valor de um Lado do seu Hexagono Regular.")
+        Z = complex(input())
+        Y = Z * Z
+        W = Y/4
+        S = W * 6
+        print("A area do seu Hexagono = ", S)
+    if P == 8:
+        print("Insira a Base maior")
+        Z = complex(input())
+        print("Insira a Base menor")
+        Y = complex(input())
+        print("Insira a Altura(H)")
+        X = complex(input())
+        print("calculando...")
+        print("(B + b) * H / 2")
+        G = Y + Z 
+        GG = G * X
+        S = GG / 2
+        print("A area do seu Trapezio = ", S )
+
+
+    else:
+
+      print("error: Try Again")
+      print("error: Try Again")
+      print("""error: Try Again""")
+      print("""erro: Tente Novamente""")
+      print("""erro: Tente Novamente""")
+      print("""erro: Tente Novamente""")
+      print("""
+    
+        =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+        Entre com suporte twitter.com/Carniceiroso
+        Try support on twitter.com/Carniceiroso
+        =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+""")
+
+#area cubica
+if G == 4:
+
+    
+    print("Cilindro       = 1")
+    print("Esfera         = 2")
+    print("Cubo           = 3")
+    print("Piramide       = 4")
+    print("Paralelepipedo = 5")
+    print("prisma         = 6")
+    print("Cone           = 7")
+    m3 = input()
+    if m3 == "1":
+        print("Formula de volume cilindrico =")
+        print("π * r^2")
+        print("^ = elevado, potenciacao")
+        print("Insira o Raio do cilindro")
+        Z = complex(input())
+        Y = float(3.14)
+        Zz = Z * Z
+        print("calculando..")
+        S = Zz * Y
+        print("O Volume do seu cilindro = ", S)   
+   
+    if m3 == "2":
+        print("")
+        print("Formula de volume esferico = ")
+        print("4 * π * r^3 / 3")
+        print("^ = elevado, potenciacao")
+        print("Insira o Raio da esfera")
+        Z = complex(input())
+        ZZ = Z * Z * Z
+        Y = 3.14
+        zy = ZZ * Y
+        zyy = zy * 4
+        S = zyy / S
+        print("O Volume da sua esfera = ", S) 
+   
+    if m3 == "3":
+        print("Formula de volume cubico =")
+        print("A^3, ou,")
+        print("A * A * A ")
+        print("lembre-se que no cubo, todas arestas sao iguais,")
+        print("senao, e um paralelepipedo.")
+        print("Insira o Valor de sua Aresta")
+
+
+        print("Formula de volume cubico =")
+        print("A^3, ou,")
+        print("A * A * A ")
+        print("lembre-se que no cubo, todas arestas sao iguais,")
+        print("senao, e um paralelepipedo.")
+        print("Insira o Valor de sua Aresta")
+        Z = complex(input())
+        Zz = Z **3
+        print("O Volume do seu Cubo = ", Zz)   
+
+    if m3 == "4":
+        print("Formula de volume de piramide =")
+        print("Area-Base * Altura / 3")
+        print("Insira a Area da Base de sua piramide")
+        Z = complex(input())
+        print("Insira a altura de sua piramide")
+        Y = complex(input())
+        print("Calculando..")
+        c = Y * Z
+        S = C / 3
+        print("O Volume de sua piramide = ", S)
+    
+    if m3 == "5":
+        print("Formula de volume de paralelepipedo =")
+        print("C * L * A")
+        print("C = comprimento")
+        print("L = lado ")
+        print("A = altura")
+        print("Insira o comprimento de seu paralelepipedo")
+        Z = complex(input())
+        print("Insira o lado de seu paralelepipedo")
+        Y = complex(input())
+        print("Insira a altura de seu paralelepipedo")
+        X = complex(input())
+        
+        c = Z * Y
+        cc = c * X
+        print("O Volume de sua piramide = ", cc)
+    
+    if m3 == "6":
+        print("Formula de volume do prisma =")
+        print("(Ab + Ab) * Altura ")
+        print("Area da base")
+        print("Insira a Area da Base de seu prisma")
+        Z = complex(input())
+        print("Insira a altura de sua prisma")
+        Y = complex(input())
+        print("Calculando..")
+        c = Z + Z
+        S = C * Y
+        print("O Volume de seu prisma = ", S)
+    
+    if m3 == "7":
+        print("Forma de volume de cone = ")
+        print("Ab * H / 3")
+        print("Ab = Area da base")
+        print("H = altura")
+        print("Insira o valor do seu raio")
+        Z = complex(input())
+        print("Insira a altura de seu cone")
+        Y = complex(input())
+        S = Y * Z 
+        ss = S / 3
+        print("O Volume de seu cone = ",ss)
+    
+
+    else:
+        
+
+        print("error, inicie novamente.")
+
+#hipotenusa
+if G == 5:
+    print("a Icognita e a hipotenusa  = 1")
+    print("A icognita e B ou C  = 2")
+    z = input()
+    if z == "1":
+        print("Insira B")
+        b = complex(input())
+        print("Incira C")
+        c = complex(input())
+        c2 = c * c
+        b2 = b * b
+        gg = b2 + c2
+        S = cmath.sqrt(gg)
+        print("x^2 = ",gg )
+        print("x = ", S )
+    if z == "2":
+        print("Insira a Hipotenusa")
+        h = complex(input())
+        print("Insira A ou B")
+        a = complex(input())
+        h2 = h * h
+        a2 = a * a
+        b = h2 - a2
+        b2 = cmath.sqrt(b)
+        print("x^2 = ", b)
+        print("x = ",b2)
+        
+    if z > "2":
+
+        print("error: Try Again")
+        print("""error: Try Again""")
+        print("""erro: Tente Novamente""")
+        print("""erro: Tente Novamente""")
+        print("""erro: Tente Novamente""")
+        print("""
+        =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+        Entre com suporte twitter.com/Carniceiroso
+        Try support on twitter.com/Carniceiroso
+        =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+""")   
+
+#fraçao geratriz
+if G == 6:
+    print("Fracao geratriz com dizima periodica de 1 numero = 1")
+    
+    t = int(input())
+
+    if t == 1:
+        print("Coloque a sua dizima com 3 numeros apos o ponto")
+        print("exemplo: 0.333")
+        d1 = complex(input())
+        print("Agora coloque com 2 numeros apos o ponto ")
+        print("exemplo: 0.33")
+        dy = complex(input())
+        dj = d1 * 10
+        y = d1 + d1
+        d3 = d1 + d1
+        s = dj - dy
+
+        print("x = {} sobre 9 " .format(s))
+        print("se querer simplificar a fraçao, volte a posiçao inicial do programa.")
+
+#MMC
+if G == 7:
+        x = int(input("Digite um número inteiro:"))
+        a = int(input("Digite outro número inteiro:"))
+
+        if x > a:
+         maior = x
+        else:
+            maior = a
+        while True:
+            if maior % x == 0 and maior % a == 0:
+        
+                break
+            else:
+             maior += 1
+
+        print(maior)
+
+#mdc
+if G == 8:
+
+    def euclides_(Ma, Me):
+        while Me != 0:
+            temp = Me
+            Me = Ma % Me
+            Ma = temp    
+        return Ma
+     
+    def euclid_(Ma, Me):
+        if Me == 0:
+            return Ma
+        else:
+            return euclides_(Me, Ma % Me)
+
+#Seno, Cosseno, Tangente
+if G == 9:
+    
+    
+
+else:
+
+
+
+    print("error: Try Again")
+    print("error: Try Again")
+    print("""error: Try Again""")
+    print("""erro: Tente Novamente""")
+    print("""erro: Tente Novamente""")
+    print("""erro: Tente Novamente""")
+    print("""
+    =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+    Entre com suporte twitter.com/Carniceiroso
+    Try support on twitter.com/Carniceiroso
+    =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+""")
